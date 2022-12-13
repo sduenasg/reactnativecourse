@@ -24,10 +24,16 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.lappland.reactnativecourse"
     },
     "web": {
       "favicon": "./assets/faviconoctopus.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "b7b07744-9d70-4b42-b0f3-ca7e399eadfb"
+      }
     }
   }
 }
