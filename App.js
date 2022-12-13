@@ -7,10 +7,12 @@ import {
   Button,
   Alert,
   TouchableOpacity,
+  Platform,
 } from "react-native";
 import slothImage from "./assets/sloth.png";
 import * as ImagePicker from "expo-image-picker";
 import * as Sharing from "expo-sharing";
+import uploadToAnonymousFilesAsync from "anonymous-files";
 
 export default function App() {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -24,7 +26,14 @@ export default function App() {
     } else {
       const pickerResult = await ImagePicker.launchImageLibraryAsync();
       if (pickerResult.canceled === false) {
+        if (Platform.OS === "web") {
+          // CORS error...
+          // let remoteUri = await uploadToAnonymousFilesAsync(pickerResult.assets[0].uri);
+          // console.log(remoteUri);
+        } 
+        
         setSelectedImage({ localUri: pickerResult.assets[0].uri });
+        
       }
     }
   };
