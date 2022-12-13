@@ -4,12 +4,12 @@
     "slug": "react-native-course",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/octopus.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/splashtopus.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#292929"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -27,7 +27,7 @@
       }
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/faviconoctopus.png"
     }
   }
 }
