@@ -10,6 +10,7 @@ import {
 } from "react-native";
 import slothImage from "./assets/sloth.png";
 import * as ImagePicker from "expo-image-picker";
+import * as Sharing from "expo-sharing";
 
 export default function App() {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -28,33 +29,42 @@ export default function App() {
     }
   };
 
+  const openShareDialogAsync = async () => {
+    if (!(await Sharing.isAvailableAsync())) {
+      alert("Sharing is not available on your platform");
+    } else {
+      await Sharing.shareAsync(selectedImage.localUri);
+    }
+  };
+
   return (
     <View style={styles.container}>
       <Image style={styles.imageIcon} source={slothImage} />
       <Text style={styles.title}>hello world 🐈</Text>
-      <Image
-        style={styles.image}
-        source={{
-          uri:
-            selectedImage !== null
-              ? selectedImage.localUri
-              : "https://picsum.photos/200/200",
-        }}
-      />
-      <Button
-        title="ZZZZzzzzZZZZ 💤😴"
-        color="cyan"
-        onPress={() => console.log("Hej sekai")}
-      />
-
-      <TouchableOpacity
-        style={styles.button}
-        title="Hej"
-        color="blue"
-        onPress={openImagePickerAsync}
-      >
-        <Text style={styles.buttonText}> Image Picker🐱‍👤 </Text>
+      <TouchableOpacity onPress={openImagePickerAsync}>
+        <Image
+          style={styles.image}
+          source={{
+            uri:
+              selectedImage !== null
+                ? selectedImage.localUri
+                : "https://picsum.photos/200/200",
+          }}
+        />
       </TouchableOpacity>
+
+      {selectedImage ? (
+        <TouchableOpacity
+          style={styles.button}
+          title="Share"
+          color="blue"
+          onPress={openShareDialogAsync}
+        >
+          <Text style={styles.buttonText}> Share 🦔 </Text>
+        </TouchableOpacity>
+      ) : (
+        <View />
+      )}
     </View>
   );
 }
