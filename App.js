@@ -9,21 +9,36 @@ import {
   Alert,
   TouchableOpacity,
   Platform,
+  TextInput,
 } from "react-native";
 import slothImage from "./assets/sloth.png";
 
-
 export default function App() {
-  
   return (
-    <View style={styles.container}>
+    <View style={styles.appContainer}>
       <Image style={styles.imageIcon} source={slothImage} />
-      <Text style={styles.title}>hello world 🐈</Text>
+      <View style={styles.inputContainer}>
+        <TextInput placeholder="Your course goal!" />
+        <Button title="Add Goal" />
+      </View>
+      <View>
+        <Text>List of goals...🐈</Text>
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
+  appContainer: {
+    paddig:36,
+    flex: 1,
+    backgroundColor: "#292929",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  inputContainer: {
+    flexDirection:'row'
+  },
   container: {
     flex: 1,
     backgroundColor: "#292929",
