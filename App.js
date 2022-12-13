@@ -18,7 +18,7 @@ export default function App() {
     <View style={styles.appContainer}>
       <Image style={styles.imageIcon} source={slothImage} />
       <View style={styles.inputContainer}>
-        <TextInput placeholder="Your course goal!" />
+        <TextInput style={styles.textInput} placeholder="Your course goal!" />
         <Button title="Add Goal" />
       </View>
       <View>
@@ -30,42 +30,24 @@ export default function App() {
 
 const styles = StyleSheet.create({
   appContainer: {
-    paddig:36,
+    paddig:50,
     flex: 1,
     backgroundColor: "#292929",
     alignItems: "center",
-    justifyContent: "center",
   },
   inputContainer: {
-    flexDirection:'row'
+    flexDirection:'row',
+    justifyContent:'space-between'
   },
-  container: {
-    flex: 1,
-    backgroundColor: "#292929",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  title: {
-    fontSize: 30,
-    color: "#FFFFFF",
-  },
-  buttonText: {
-    color: "#FFFFFF",
-    fontSize: 20,
-  },
-  image: {
-    //resizeMode: "contain",
-    borderRadius: 100,
-    height: 200,
-    width: 200,
+  textInput: {
+    borderWidth:1,
+    borderColor: "#CCCCCC",
+    width:'70%',
+    marginRight:8,
+    padding: 8
   },
   imageIcon: {
     height: 50,
     width: 50,
-  },
-  button: {
-    backgroundColor: "deepskyblue",
-    padding: 7,
-    marginTop: 10,
   },
 });
