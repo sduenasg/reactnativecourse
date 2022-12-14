@@ -15,6 +15,7 @@ import {
 } from "react-native";
 import GoalInput from "./src/components/GoalInput";
 import { StatusBar } from "expo-status-bar";
+import Constants from "expo-constants";
 
 export default function App() {
   const [courseGoals, setCourseGoals] = useState([
@@ -53,7 +54,7 @@ export default function App() {
 
   return (
     <>
-      <StatusBar style = 'light'/>
+      <StatusBar style="light" />
       <View style={styles.appContainer}>
         <Button
           title="Add New Goal"
@@ -87,8 +88,10 @@ export default function App() {
 
 const styles = StyleSheet.create({
   appContainer: {
+    margintop: Constants.statusBarHeight,
     flexDirection: "column",
-    paddig: 50,
+    paddingHorizontal: 50,
+    paddingBottom: 50,
     flex: 1,
     paddingTop: 50,
     paddingHorizontal: 16,
