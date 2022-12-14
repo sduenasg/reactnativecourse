@@ -17,7 +17,11 @@ import {
 import GoalInput from "./components/GoalInput";
 
 export default function App() {
-  const [courseGoals, setCourseGoals] = useState([]);
+  const [courseGoals, setCourseGoals] = useState([
+    { text: "esto", key: "a" },
+    { text: "es una", key: "b" },
+    { text: "prueba", key: "c" },
+  ]);
 
   function addGoalHandler(enteredGoalText) {
     // new state depends on the previous state
@@ -26,6 +30,13 @@ export default function App() {
       ...currentCourseGoals,
       { text: enteredGoalText, key: Math.random().toString() },
     ]);
+  }
+
+  function deleteGoalHandler(id) {
+    console.log("DELETE " + id);
+    setCourseGoals((currentCourseGoals) => {
+      return currentCourseGoals.filter((goal) => goal.key !== id);
+    });
   }
 
   return (
@@ -40,7 +51,13 @@ export default function App() {
           alwaysBounceVertical={false}
           data={courseGoals}
           renderItem={(itemData) => {
-            return <GoalItem text={itemData.item.text} />;
+            return (
+              <GoalItem
+                text={itemData.item.text}
+                id={itemData.item.key}
+                onDeleteItem={deleteGoalHandler}
+              />
+            );
           }}
         />
       </View>
