@@ -7,7 +7,7 @@ import {
   Image,
 } from "react-native";
 import React, { useState } from "react";
-import octopusImage from "../assets/octopus.png";
+import octopusImage from "../../assets/octopus.png";
 
 function GoalInput(props) {
   const [enteredGoalText, setEnteredGoalText] = useState("");

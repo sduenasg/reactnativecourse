@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import GoalItem from "./components/GoalItem";
+import GoalItem from "./src/components/GoalItem";
 import {
   StyleSheet,
   Text,
@@ -13,7 +13,7 @@ import {
   ScrollView,
   FlatList,
 } from "react-native";
-import GoalInput from "./components/GoalInput";
+import GoalInput from "./src/components/GoalInput";
 import { StatusBar } from "expo-status-bar";
 
 export default function App() {
