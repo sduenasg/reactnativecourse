@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import GoalItem from "./components/GoalItem";
-import slothImage from "./assets/sloth.png";
 import {
   StyleSheet,
   Text,
@@ -53,12 +52,10 @@ export default function App() {
 
   return (
     <View style={styles.appContainer}>
-      <View style={styles.topImage}>
-        <Image style={styles.imageIcon} source={slothImage} />
-      </View>
+      
       <Button
         title="Add New Goal"
-        color="#5e0acc"
+        color="#444444"
         onPress={startAddGoalHandler}
       />
       <GoalInput visible={modalIsVisible} onAddGoal={addGoalHandler} onCancel={endAddGoalHandler} />
@@ -82,15 +79,6 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
-  imageIcon: {
-    height: 50,
-    width: 50,
-  },
-  topImage: {
-    flex: 1,
-    flexDirection: "row",
-    justifyContent: "center",
-  },
   appContainer: {
     flexDirection: "column",
     paddig: 50,
