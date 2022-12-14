@@ -11,6 +11,7 @@ import {
   Platform,
   TextInput,
   ScrollView,
+  FlatList,
 } from "react-native";
 import slothImage from "./assets/sloth.png";
 
@@ -24,11 +25,11 @@ export default function App() {
 
   function addGoalHandler() {
     // new state depends on the previous state
+    // key prop is automatically used by Flatlist to identify items
     setCourseGoals((currentCourseGoals) => [
       ...currentCourseGoals,
-      enteredGoalText,
+      { text:enteredGoalText, key: Math.random().toString() }, 
     ]);
-    console.log(enteredGoalText);
   }
 
   return (
@@ -46,15 +47,17 @@ export default function App() {
       </View>
       <View style={styles.goalsContainer}>
         <Text>List of goals...🐈</Text>
-        <ScrollView alwaysBounceVertical={false}>
-          {courseGoals.map((goal) => (
-            <View style={styles.goalItem}>
-              <Text style={styles.goalText} key={goal}>
-                {goal}
-              </Text>
-            </View>
-          ))}
-        </ScrollView>
+        <FlatList
+          alwaysBounceVertical = {false}
+          data = {courseGoals}
+          renderItem = {(itemData) => {
+            return (
+              <View style={styles.goalItem}>
+                <Text style={styles.goalText}>{itemData.item.text}</Text>
+              </View>
+            );
+          }}
+        />
       </View>
     </View>
   );
@@ -66,9 +69,9 @@ const styles = StyleSheet.create({
     width: 50,
   },
   topImage: {
-    flex:1,
-    flexDirection:'row',
-    justifyContent:'center'
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "center",
   },
   appContainer: {
     flexDirection: "column",
