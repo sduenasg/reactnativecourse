@@ -23,6 +23,16 @@ export default function App() {
     { text: "prueba", key: "c" },
   ]);
 
+  const [modalIsVisible, setModalIsvisible] = useState(false);
+
+  function startAddGoalHandler() {
+    setModalIsvisible(true);
+  }
+
+  function endAddGoalHandler() {
+    setModalIsvisible(false);
+  }
+
   function addGoalHandler(enteredGoalText) {
     // new state depends on the previous state
     // key prop is automatically used by Flatlist to identify items
@@ -30,6 +40,8 @@ export default function App() {
       ...currentCourseGoals,
       { text: enteredGoalText, key: Math.random().toString() },
     ]);
+
+    endAddGoalHandler()
   }
 
   function deleteGoalHandler(id) {
@@ -44,9 +56,13 @@ export default function App() {
       <View style={styles.topImage}>
         <Image style={styles.imageIcon} source={slothImage} />
       </View>
-      <GoalInput onAddGoal={addGoalHandler} />
+      <Button
+        title="Add New Goal"
+        color="#5e0acc"
+        onPress={startAddGoalHandler}
+      />
+      <GoalInput visible={modalIsVisible} onAddGoal={addGoalHandler} onCancel={endAddGoalHandler} />
       <View style={styles.goalsContainer}>
-        <Text>List of goals...🐈</Text>
         <FlatList
           alwaysBounceVertical={false}
           data={courseGoals}
