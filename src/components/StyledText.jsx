@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
   text: {
     fontSize: theme.fontSizes.medium,
     color: theme.colors.textPrimary,
-    fontFamily: theme.fontWeights.normal,
+    fontWeight: theme.fontWeights.normal,
   },
   colorPrimary: {
     color: theme.colors.colorPrimary,
@@ -20,6 +20,9 @@ const styles = StyleSheet.create({
   subheading: {
     fonstSize: theme.fontSizes.subheading,
   },
+  textAlignCenter: {
+    textAlign: "center",
+  },
 });
 
 export default function StyledText({
@@ -27,15 +30,18 @@ export default function StyledText({
   color,
   fontSize,
   fontWeight,
+  align,
   style,
   ...restOfProps
 }) {
   const textStyles = [
     styles.text,
+    align === "center" && styles.textAlignCenter,
     color === "primary" && styles.colorPrimary,
     color === "secondary" && styles.colorSecondary,
     fontSize === "subheading" && styles.subheading,
-    fontWeight ==="bold" && styles.bold
+    fontWeight === "bold" && styles.bold,
+    style,
   ];
 
   return (
