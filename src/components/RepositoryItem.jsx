@@ -3,10 +3,11 @@ import { View, StyleSheet, Image } from "react-native";
 import StyledText from "./StyledText";
 import RepositoryStats from "./RepositoryStats";
 import theme from "../theme";
+
 const RepositoryItem = (repo) => {
   return (
     <View style={styles.repositoryItem} key={repo.id}>
-      <Image style={styles.image} source={repo.ownerAvatarUrl} />
+      <Image style={styles.image} source={{uri: repo.ownerAvatarUrl}} />
 
       <StyledText fontSize="subheading" fontWeight="bold">
         {repo.fullName}
@@ -24,10 +25,12 @@ export default RepositoryItem;
 
 const styles = StyleSheet.create({
   image: {
-    width: 200,
-    weight: 200,
+    width: 48,
+    height: 48,
     margin:'auto',
-    borderRadius:4
+    borderRadius:4,
+    borderWidth:4,
+    resizeMode: "contain",
   },
   repositoryItem: {
     flexDirection: "column",
