@@ -6,7 +6,6 @@
     "orientation": "portrait",
     "icon": "./assets/octopus.png",
     "userInterfaceStyle": "light",
-    "backgroundColor": "#1e085a",
     "splash": {
       "image": "./assets/splashtopus.png",
       "resizeMode": "contain",

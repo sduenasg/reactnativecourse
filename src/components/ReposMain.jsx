@@ -14,11 +14,12 @@ import {
 } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import Constants from "expo-constants";
+import RepositoryList from './RepositoryList'
 
 export default function ReposMain(){
   return (
     <View style={styles.appContainer}>
-      <Text>Repositories</Text>
+      <RepositoryList/>
     </View>
   );
 };
