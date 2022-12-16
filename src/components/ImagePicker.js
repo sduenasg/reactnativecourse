@@ -10,7 +10,7 @@ import {
   TouchableOpacity,
   Platform,
 } from "react-native";
-import slothImage from "./assets/sloth.png";
+import slothImage from "../../assets/sloth.png";
 import * as ImagePicker from "expo-image-picker";
 import * as Sharing from "expo-sharing";
 import uploadToAnonymousFilesAsync from "anonymous-files";

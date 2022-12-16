@@ -18,5 +18,3 @@ const RepositoryList = () => {
 };
 
 export default RepositoryList;
-
-const styles = StyleSheet.create({});

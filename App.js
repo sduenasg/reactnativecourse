@@ -1,12 +1,12 @@
 import React from "react";
-import { StatusBar } from "expo-status-bar";
-import GoalsMain from "./src/components/GoalsMain";
-import ReposMain from "./src/components/ReposMain";
-
+import Main from "./src/components/Main";
+import { NativeRouter } from "react-router-native";
 export default function App() {
   return (
     <>
-      <ReposMain/>
+      <NativeRouter>
+        <Main />
+      </NativeRouter>
     </>
   );
 }
