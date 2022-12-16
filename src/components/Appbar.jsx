@@ -1,34 +1,47 @@
-import { StyleSheet, View } from "react-native";
+import {
+  StyleSheet,
+  View,
+  TouchableWithoutFeedback,
+  ScrollView,
+} from "react-native";
 import StyledText from "./StyledText";
 import Constants from "expo-constants";
 import theme from "../theme";
-import { Link } from "react-router-native";
+import { Link, useLocation } from "react-router-native";
 
-const AppBarTab = ({ active, children, to }) => {
+const AppBarTab = ({children, to }) => {
+ 
+  const { pathname } = useLocation(); //current path
+  const active = pathname === to
+  const textStyles = [styles.text, active && styles.active];
+
   return (
-    <Link to={to}>
-      <StyledText fontWeight="bold" style={styles.text}>
+    <Link to={to} component={TouchableWithoutFeedback}>
+      <StyledText fontWeight="bold" style={textStyles}>
         {children}
       </StyledText>
     </Link>
   );
 };
 
+const getRouteProps = ({pathname, to}) =>{
+    const textStyles = [
+        styles.text,
+        active && styles.active
+    ]
+}
+
+
 const AppBar = () => {
+  
   return (
     <View style={styles.container}>
-      <AppBarTab active to="/">
-        Repositories
-      </AppBarTab>
-      <AppBarTab active to="/signin">
-        Sign In
-      </AppBarTab>
-      <AppBarTab active to="/goals">
-        Goals
-      </AppBarTab>
-      <AppBarTab active to="/imagepicker">
-        Image picker
-      </AppBarTab>
+      <ScrollView horizontal style={styles.scroll}>
+        <AppBarTab to="/">Repositories</AppBarTab>
+        <AppBarTab to="/signin">Sign In</AppBarTab>
+        <AppBarTab to="/goals">Goals</AppBarTab>
+        <AppBarTab to="/imagepicker">Image picker</AppBarTab>
+      </ScrollView>
     </View>
   );
 };
@@ -36,16 +49,20 @@ export default AppBar;
 
 const styles = StyleSheet.create({
   container: {
-
-    flexDirection:'row',
+    flexDirection: "row",
     backgroundColor: theme.appBar.primary,
     paddingTop: Constants.statusBarHeight + 10,
-    paddingBottom: 10,
     paddingLeft: 10,
-
-    justifyContent:"space-around"
+    justifyContent: "space-around",
   },
   text: {
+    color: theme.appBar.secondary,
+    paddingHorizontal: 10,
+  },
+  scroll: {
+    paddingBottom: 15,
+  },
+  active: {
     color: theme.appBar.textPrimary,
   },
 });

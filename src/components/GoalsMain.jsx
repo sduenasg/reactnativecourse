@@ -54,7 +54,6 @@ export default function GoalsMain() {
 
   return (
     <>
-      <StatusBar style="light" />
       <View style={styles.appContainer}>
         <Button
           title="Add New Goal"
