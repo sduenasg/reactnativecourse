@@ -11,7 +11,7 @@ import { Link, useLocation } from "react-router-native";
 
 const AppBarTab = ({children, to }) => {
  
-  const { pathname } = useLocation(); //current path
+  const { pathname } = useLocation(); //current path from the router
   const active = pathname === to
   const textStyles = [styles.text, active && styles.active];
 
@@ -23,14 +23,6 @@ const AppBarTab = ({children, to }) => {
     </Link>
   );
 };
-
-const getRouteProps = ({pathname, to}) =>{
-    const textStyles = [
-        styles.text,
-        active && styles.active
-    ]
-}
-
 
 const AppBar = () => {
   
