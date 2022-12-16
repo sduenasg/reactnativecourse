@@ -1,20 +1,12 @@
 import React, { useState } from "react";
-import GoalItem from "./GoalItem";
+import GoalItem from "./GoalItem.jsx";
 import {
   StyleSheet,
-  Text,
   View,
-  Image,
   Button,
-  Alert,
-  TouchableOpacity,
-  Platform,
-  TextInput,
-  ScrollView,
   FlatList,
 } from "react-native";
 import GoalInput from "./GoalInput";
-import { StatusBar } from "expo-status-bar";
 import Constants from "expo-constants";
 
 export default function GoalsMain() {

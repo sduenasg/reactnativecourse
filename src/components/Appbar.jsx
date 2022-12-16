@@ -4,7 +4,7 @@ import {
   TouchableWithoutFeedback,
   ScrollView,
 } from "react-native";
-import StyledText from "./StyledText";
+import StyledText from "./StyledText.jsx";
 import Constants from "expo-constants";
 import theme from "../theme";
 import { Link, useLocation } from "react-router-native";

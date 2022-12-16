@@ -1,7 +1,7 @@
 import React from "react";
-import { View, StyleSheet, Image } from "react-native";
-import StyledText from "./StyledText";
-import RepositoryStats from "./RepositoryStats";
+import { View, StyleSheet, Image, Platform } from "react-native";
+import StyledText from "./StyledText.jsx";
+import RepositoryStats from "./RepositoryStats.jsx";
 import theme from "../theme";
 
 const RepositoryItem = (repo) => {
@@ -36,10 +36,10 @@ const styles = StyleSheet.create({
     width: 48,
     height: 48,
     borderRadius: 4,
-    alignSelf:'flex-start'
+    alignSelf: "flex-start",
   },
   headerRightColumn: {
-    alignSelf:'flex-start',
+    alignSelf: "flex-start",
     paddingHorizontal: 8,
     flexDirection: "column",
     flexGrow: 1,
@@ -49,10 +49,14 @@ const styles = StyleSheet.create({
     flexDirection: "row",
   },
   language: {
-    marginVertical:4,
+    marginVertical: 4,
     padding: 4,
     color: theme.colors.white,
-    backgroundColor: theme.colors.primary,
+    backgroundColor: Platform.select({
+      android: theme.colors.primary,
+      web: "orange",
+      ios: "green",
+    }),
     alignSelf: "flex-start",
     borderRadius: 4,
     overflow: "hidden", // en texto es necesario para que apareza el border radius

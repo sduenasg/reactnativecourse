@@ -5,8 +5,6 @@ import {
   Text,
   View,
   Image,
-  Button,
-  Alert,
   TouchableOpacity,
   Platform,
 } from "react-native";
@@ -15,7 +13,7 @@ import * as ImagePicker from "expo-image-picker";
 import * as Sharing from "expo-sharing";
 import uploadToAnonymousFilesAsync from "anonymous-files";
 
-export default function App() {
+export default function MyImagePicker() {
   const [selectedImage, setSelectedImage] = useState(null);
 
   let openImagePickerAsync = async () => {
