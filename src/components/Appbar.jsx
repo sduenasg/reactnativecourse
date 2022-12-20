@@ -29,7 +29,8 @@ const AppBar = () => {
   return (
     <View style={styles.container}>
       <ScrollView horizontal style={styles.scroll}>
-        <AppBarTab to="/">Repositories</AppBarTab>
+        <AppBarTab to="/">PokeAPI</AppBarTab>
+        <AppBarTab to="/repositories">Repositories</AppBarTab>
         <AppBarTab to="/signin">Sign In</AppBarTab>
         <AppBarTab to="/goals">Goals</AppBarTab>
         <AppBarTab to="/imagepicker">Image picker</AppBarTab>
