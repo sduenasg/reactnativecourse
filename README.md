@@ -9,9 +9,9 @@ npm start
 
 - Image picker
 - Login form
-- Repository list
+- Repository list ui (loaded from a local mock)
 - Goal Tracking
-- Pokemon List (fetching from PokeAPI)
+- Pokemon List (fetched from PokeAPI)
 
 
 
