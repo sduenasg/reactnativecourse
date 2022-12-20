@@ -9,7 +9,7 @@ const PokemonItem = (pokemon) => {
   };
 
   return (
-    <View style={styles.pokemonItem} key={pokemon.id}>
+    <View style={styles.pokemonItem} key={pokemon.name}>
       <View style={styles.headerRow}>
         <Image
           style={styles.image}
@@ -18,13 +18,13 @@ const PokemonItem = (pokemon) => {
 
         <View style={styles.headerRightColumn}>
           <StyledText fontSize="subheading" fontWeight="bold">
-            {capitalizeFirst(pokemon.name)}
+            {pokemon.id + " " + capitalizeFirst(pokemon.name)}
           </StyledText>
 
           <StyledText>Weight: {pokemon.weight}</StyledText>
           <View style={styles.typesList}>
             {pokemon.types.map((type) => (
-              <StyledText style={styles.language}>{type.name}</StyledText>
+              <StyledText style={styles.language}>{type.type.name}</StyledText>
             ))}
           </View>
         </View>

@@ -1,15 +1,16 @@
 import React from "react";
-import { View, StyleSheet, FlatList } from "react-native";
-import pokemon from "../data/pokemon.js";
+import { View, FlatList } from "react-native";
 import PokemonItem from "./PokemonItem.jsx";
+import usePokemon from "../hooks/usePokemon.js";
 
 const PokemonList = () => {
+  const { pokemonList } = usePokemon()
   return (
     <View>
       <FlatList
         alwaysBounceVertical={false}
-        data={pokemon}
-        renderItem={({item: pokemon}) => {
+        data={pokemonList}
+        renderItem={({ item: pokemon }) => {
           return <PokemonItem {...pokemon} />;
         }}
       />
