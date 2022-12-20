@@ -7,7 +7,7 @@ const usePokemon = () => {
     setPokemonList((currentPokemonList) => []);
 
     const response = await globalThis.fetch(
-      "https://pokeapi.co/api/v2/pokemon?limit=150&offset=0"
+      "https://pokeapi.co/api/v2/pokemon?limit=15&offset=0"
     );
     const json = await response.json();
 
