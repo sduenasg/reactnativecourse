@@ -6,6 +6,8 @@ import AppBar from "./Appbar"; // sin extension para cargar la appbar de cada pl
 import GoalsMain from "./GoalsMain.jsx";
 import MyImagePicker from "./ImagePicker.jsx";
 import LogInPage from "./LogIn";
+import QuestionCard from "./Question.jsx";
+import octopusImage from "../../assets/octopus.png";
 
 export default function Main() {
   return (
@@ -16,6 +18,7 @@ export default function Main() {
         <Route path="/signin" exact element={<LogInPage />} />
         <Route path="/goals" exact element={<GoalsMain />} />
         <Route path="/imagepicker" exact element={<MyImagePicker />} />
+        <Route path="/question" exact element={<QuestionCard question={'¿Cómo estás?'} image = {octopusImage}/>} />
       </Routes>
     </View>
   );

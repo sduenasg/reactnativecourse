@@ -33,6 +33,7 @@ const AppBar = () => {
         <AppBarTab to="/signin">Sign In</AppBarTab>
         <AppBarTab to="/goals">Goals</AppBarTab>
         <AppBarTab to="/imagepicker">Image picker</AppBarTab>
+        <AppBarTab to="/question">Question</AppBarTab>
       </ScrollView>
     </View>
   );
