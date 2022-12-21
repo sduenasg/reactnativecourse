@@ -11,6 +11,7 @@
   "dependencies": {
     "@expo/webpack-config": "^0.17.2",
     "anonymous-files": "^1.0.1",
+    "axios": "^1.2.1",
     "explo-cli": "^1.0.6",
     "expo": "~47.0.8",
     "expo-image-picker": "~14.0.2",
