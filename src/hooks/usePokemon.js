@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 const usePokemon = () => {
   const [pokemonList, setPokemonList] = useState([]);
 
-  const fetchPokemon = async () => {
+  const fetchPokemonList = async () => {
     setPokemonList((currentPokemonList) => []);
 
     const response = await globalThis.fetch(
@@ -12,9 +12,8 @@ const usePokemon = () => {
     const json = await response.json();
 
     for (let i = 0; i < json.results.length; i++) {
-      var pokemon = json.results[i]
-      var responseDetail = await globalThis.fetch(pokemon.url);
-      var jsonDetail = await responseDetail.json();
+      let pokemon = json.results[i];
+      let jsonDetail = await fetchPokemonDetail({url: pokemon.url})
 
       setPokemonList((currentPokemonList) =>
         [...currentPokemonList, jsonDetail].sort((a, b) =>
@@ -26,7 +25,7 @@ const usePokemon = () => {
     //json.results.forEach(async (pokemon) => {
     //  const responseDetail = await globalThis.fetch(pokemon.url);
     //  const jsonDetail = await responseDetail.json();
-//
+    //
     //  setPokemonList((currentPokemonList) =>
     //    [...currentPokemonList, jsonDetail].sort((a, b) =>
     //      a.id < b.id ? -1 : 1
@@ -35,8 +34,13 @@ const usePokemon = () => {
     //});
   };
 
+  const fetchPokemonDetail = async (props) => {
+    let responseDetail = await globalThis.fetch(props.url);
+    return await responseDetail.json();
+  };
+
   useEffect(() => {
-    fetchPokemon();
+    fetchPokemonList();
   }, []);
 
   return { pokemonList: pokemonList };

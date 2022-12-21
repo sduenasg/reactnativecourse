@@ -9,7 +9,7 @@ const PokemonItem = (pokemon) => {
   };
 
   return (
-    <View style={styles.pokemonItem} key={pokemon.name}>
+    <View style={styles.pokemonItem}>
       <View style={styles.headerRow}>
         <Image
           style={styles.image}
@@ -41,8 +41,8 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   image: {
-    width: 48,
-    height: 48,
+    width: 120,
+    height: 120,
     borderRadius: 4,
     alignSelf: "flex-start",
   },

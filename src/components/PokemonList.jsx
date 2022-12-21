@@ -4,7 +4,7 @@ import PokemonItem from "./PokemonItem.jsx";
 import usePokemon from "../hooks/usePokemon.js";
 
 const PokemonList = () => {
-  const { pokemonList } = usePokemon()
+  const { pokemonList } = usePokemon();
   return (
     <View>
       <FlatList
@@ -12,6 +12,9 @@ const PokemonList = () => {
         data={pokemonList}
         renderItem={({ item: pokemon }) => {
           return <PokemonItem {...pokemon} />;
+        }}
+        keyExtractor={(item, index) => {
+          return item.id.toString();
         }}
       />
     </View>
