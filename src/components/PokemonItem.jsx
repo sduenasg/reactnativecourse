@@ -9,7 +9,7 @@ const PokemonItem = (pokemon) => {
   };
 
   return (
-    <View style={styles.pokemonItem}>
+    <View style={styles.pokemonItem} key = {pokemon.id.toString()} >
       <View style={styles.headerRow}>
         <Image
           style={styles.image}
@@ -24,7 +24,7 @@ const PokemonItem = (pokemon) => {
           <StyledText>Weight: {pokemon.weight}</StyledText>
           <View style={styles.typesList}>
             {pokemon.types.map((type) => (
-              <StyledText style={styles.language}>{type.type.name}</StyledText>
+              <StyledText style={styles.pokemonType} key={type.type.name}>{type.type.name}</StyledText>
             ))}
           </View>
         </View>
@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
   typesList: {
     flexDirection: "row",
   },
-  language: {
+  pokemonType: {
     marginRight: 4,
     padding: 4,
     color: theme.colors.white,
