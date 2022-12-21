@@ -6,6 +6,7 @@ import theme from "../theme";
 const getTypeColor = (typeName) =>{
   const typeColors = new Map([
     ["normal", '#5E5D5C'],
+    ["bug", '#0A6003'],
     ["fighting", '#F7D4D4'],
     ["flying", '#749799'],
     ["poison", '#295A36'],
